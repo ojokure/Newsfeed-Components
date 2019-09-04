@@ -89,7 +89,7 @@ const data = [
 ];
 
 // /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
-  
+
 //   // <div class="article">
 //   //   <h2>{title of the article}</h2>
 //   //   <p class="date">{date of the article}</p>
@@ -98,44 +98,7 @@ const data = [
 
 //   //   <span class='expandButton'></span>
 //   // </div>
-  
-function articleMaker({title, text1, text2, text3, text4}){
 
-const div = document.createElement('div');
-
-div.classList.add('article')
-
-const h2 = document.createElement('h2');
-
-const p1 = document.createElement('p');
-
-div.classList.add('class', 'date')
-
-const p2 = document.createElement('p');
-
-const p3 = document.createElement('p');
-
-const p4 = document.createElement('p');
-
-const span = document.createElement('span');
-
-span.classList.add('expandButton');
-
-span.addEventListener('click', (div) => 
-    div.classList.toggle('article-open')
-)
-
-
-div.appendChild(h2);
-div.appendChild(p1);
-div.appendChild(p2);
-div.appendChild(p3);
-div.appendChild(p4);
-div.appendChild(span);
-
-return div 
-
-}
 
 //   Hint: You will need to use createElement more than once here!
 
@@ -151,3 +114,57 @@ return div
 //   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 // */
+
+
+function articleMaker({title, date, firstParagraph, secondParagraph, thirdParagraph}) {
+
+  const div = document.createElement('div');
+
+  div.classList.add('article')
+
+  const h2 = document.createElement('h2');
+
+  const p1 = document.createElement('p');
+
+  div.classList.add('class', 'date')
+
+  const p2 = document.createElement('p');
+
+  const p3 = document.createElement('p');
+
+  const p4 = document.createElement('p');
+
+  const span = document.createElement('span');
+
+  span.classList.add('expandButton');
+
+  span.addEventListener('click', (el) =>
+  div.classList.toggle('article-open')
+  )
+
+  
+  h2.textContent = title;
+  p1.textContent = date;
+  p2.textContent = firstParagraph;
+  p3.textContent = secondParagraph;
+  p4.textContent = thirdParagraph;
+  span.textContent = 'click'
+
+  div.appendChild(h2);
+  div.appendChild(p1);
+  div.appendChild(p2);
+  div.appendChild(p3);
+  div.appendChild(p4);
+  div.appendChild(span);
+
+  return div
+
+}
+
+let articles = document.querySelector('.articles');
+
+for(let i = 0; i < data.length; i++){
+
+  let div = articleMaker(data[i]);
+   articles.appendChild(div);
+}
