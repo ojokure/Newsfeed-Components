@@ -88,6 +88,7 @@ const data = [
   }
 ];
 
+data.push({title:'PHP', date:'September 4, 2019', firstParagraph:'Hello World', secondParagraph:'Hello World', thirdParagraph:'Hello World'});
 // /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
 
 //   // <div class="article">
@@ -163,8 +164,14 @@ function articleMaker({title, date, firstParagraph, secondParagraph, thirdParagr
 
 let articles = document.querySelector('.articles');
 
-for(let i = 0; i < data.length; i++){
+// for(let i = 0; i < data.length; i++){
 
-  let div = articleMaker(data[i]);
-   articles.appendChild(div);
-}
+//   let div = articleMaker(data[i]);
+//    articles.appendChild(div);
+// }
+
+data.forEach((el) => {
+let div = articleMaker(el)
+articles.appendChild(div)
+    });
+
