@@ -99,11 +99,11 @@ const data = [
 //   //   <span class='expandButton'></span>
 //   // </div>
   
-function articleMaker({title, text1, text2, text3, button}){
+function articleMaker({title, text1, text2, text3, text4}){
 
 const div = document.createElement('div');
 
-div.classList.add('class', 'article')
+div.classList.add('article')
 
 const h2 = document.createElement('h2');
 
@@ -115,18 +115,26 @@ const p2 = document.createElement('p');
 
 const p3 = document.createElement('p');
 
+const p4 = document.createElement('p');
+
 const span = document.createElement('span');
 
-div.classList.add('class','expandButton');
+span.classList.add('expandButton');
+
+span.addEventListener('click', (div) => 
+    div.classList.toggle('article-open')
+)
 
 
 div.appendChild(h2);
-div.appendChild(p);
-div.appendChild(p);
-div.appendChild(p);
+div.appendChild(p1);
+div.appendChild(p2);
+div.appendChild(p3);
+div.appendChild(p4);
 div.appendChild(span);
 
 return div 
+
 }
 
 //   Hint: You will need to use createElement more than once here!
@@ -134,6 +142,7 @@ return div
 //   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
 
 //   Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
+
 
 //   Step 3: return the entire component.
 
