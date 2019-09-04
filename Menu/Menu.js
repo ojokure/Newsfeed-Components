@@ -65,10 +65,4 @@ let header = document.querySelector('.header');
 
 header.appendChild(menuBreaker(menuItems));
 
-// menuList.forEach((el) => {
-
-//   let ul = menuBreaker(el)
-
-
-// });
 
